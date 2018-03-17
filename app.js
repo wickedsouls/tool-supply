@@ -3,11 +3,11 @@ const app = express();
 const tools = require('./json-data/tools');
 
 app.get('/tools', (req, res) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header(
-      'Access-Control-Allow-Origin',
-      'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-  );
+  let allowedOrigins = ["https://enigmatic-cliffs-25405.herokuapp.com", "http://localhost:9000"];
+  let origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin); // restrict it to the required domain
+  }
   res.status(200).json({tools})
 });
 
