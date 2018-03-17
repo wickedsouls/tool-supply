@@ -16,7 +16,6 @@ app.use(function(req, res, next) {
 });
 
 app.get('/tools', (req, res) => {
-  app.UseCors(CorsOptions.AllowAll);
   res.status(200).json({tools})
 });
 
