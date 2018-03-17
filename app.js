@@ -2,12 +2,21 @@ const express = require('express');
 const app = express();
 const tools = require('./json-data/tools');
 
-app.get('/tools', (req, res) => {
-  let allowedOrigins = ["https://enigmatic-cliffs-25405.herokuapp.com", "http://localhost:9000"];
-  let origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.header("Access-Control-Allow-Origin", origin); // restrict it to the required domain
+app.use(function(req, res, next) {
+  var allowedOrigins = ['http://127.0.0.1:8020', 'http://localhost:80', 'http://127.0.0.1:9000', 'http://localhost:9000'];
+  var origin = req.headers.origin;
+  if(allowedOrigins.indexOf(origin) > -1){
+    res.setHeader('Access-Control-Allow-Origin', origin);
   }
+  //res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8020');
+  res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', true);
+  return next();
+});
+
+app.get('/tools', (req, res) => {
+  app.UseCors(CorsOptions.AllowAll);
   res.status(200).json({tools})
 });
 
