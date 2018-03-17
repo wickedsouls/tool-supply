@@ -3,7 +3,7 @@ const app = express();
 const tools = require('./json-data/tools');
 
 app.use(function(req, res, next) {
-  var allowedOrigins = ['http://127.0.0.1:8020', 'http://localhost:80', 'http://127.0.0.1:9000', 'http://localhost:9000'];
+  var allowedOrigins = ['https://enigmatic-cliffs-25405.herokuapp.com/tools', 'http://localhost:80', 'http://127.0.0.1:9000', 'http://localhost:9000'];
   var origin = req.headers.origin;
   if(allowedOrigins.indexOf(origin) > -1){
     res.setHeader('Access-Control-Allow-Origin', origin);
