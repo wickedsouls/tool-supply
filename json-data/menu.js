@@ -6,8 +6,9 @@ module.exports = {
     {name:'Coffee', price:2.20}
   ],
   dishes:[
-    {name:'Home Burger', price: 8.80},
-    {name:'Home Burger', price:9.90},
+    {name:'🍔 Home Burger 🍔', price: 8.80},
+    {name:'🍕 Pizza 🍕', price: 12.80},
+    {name:'Chicken Burger', price:9.90},
     {name:'Beef Soup', price:3.80},
     {name:'Ceasar Salads', price:4.90},
   ],
