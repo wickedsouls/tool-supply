@@ -10,6 +10,7 @@ app.use(cors());
 
 app.get('/tools', (req, res) => {
   res.status(200).json({tools})
+
 });
 app.get('/menu', (req,res)=>{
     res.status(200).json({menu})
